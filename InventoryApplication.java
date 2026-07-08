@@ -110,11 +110,16 @@ public class InventoryApplication {
     private void addInventoryItem() {
         System.out.println("\nAdd New Inventory Item");
 
-        int itemId = getPositiveIntInput("Enter item ID: ");
+        int itemId;
 
-        if (manager.itemExists(itemId)) {
-            System.out.println("That item ID already exists. Item was not added.");
-            return;
+        while (true) {
+            itemId = getPositiveIntInput("Enter item ID: ");
+
+            if (!manager.itemExists(itemId)) {
+                break;
+            }
+
+            System.out.println("That item ID already exists. Please enter a different ID.");
         }
 
         String itemName = getStringInput("Enter item name: ");
@@ -124,8 +129,15 @@ public class InventoryApplication {
         double unitCost = getPositiveDoubleInput("Enter unit cost: ");
         int reorderLevel = getPositiveIntInput("Enter reorder level: ");
 
-        InventoryItem item = new InventoryItem(itemId, itemName, category, supplier,
-                quantity, unitCost, reorderLevel);
+        InventoryItem item = new InventoryItem(
+                itemId,
+                itemName,
+                category,
+                supplier,
+                quantity,
+                unitCost,
+                reorderLevel
+        );
 
         if (manager.addItem(item)) {
             System.out.println("Inventory item added successfully.");
@@ -139,24 +151,33 @@ public class InventoryApplication {
      * This method removes an item by ID.
      */
     private void removeInventoryItem() {
-        int itemId = getPositiveIntInput("Enter item ID to remove: ");
 
-        if (manager.removeItem(itemId)) {
-            System.out.println("Inventory item removed successfully.");
-        } else {
-            System.out.println("Item not found. Nothing was removed.");
+        while (true) {
+            int itemId = getPositiveIntInput("Enter item ID to remove: ");
+
+            if (manager.removeItem(itemId)) {
+                System.out.println("Inventory item removed successfully.");
+                return;
+            }
+
+            System.out.println("Item not found. Please enter another item ID.");
         }
     }
-
     /*
      * This method allows the user to update one field of an item.
      */
     private void updateInventoryItem() {
-        int itemId = getPositiveIntInput("Enter item ID to update: ");
 
-        if (!manager.itemExists(itemId)) {
-            System.out.println("Item not found.");
-            return;
+        int itemId;
+
+        while (true) {
+            itemId = getPositiveIntInput("Enter item ID to update: ");
+
+            if (manager.itemExists(itemId)) {
+                break;
+            }
+
+            System.out.println("Item not found. Please enter another item ID.");
         }
 
         System.out.println("\nWhat would you like to update?");
@@ -170,6 +191,7 @@ public class InventoryApplication {
         int fieldChoice = getIntInput("Choose a field: ");
 
         String newValue;
+
         if (fieldChoice == 4 || fieldChoice == 6) {
             int numberValue = getPositiveIntInput("Enter the new value: ");
             newValue = String.valueOf(numberValue);
