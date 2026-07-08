@@ -144,6 +144,9 @@ public class InventoryManager {
         }
 
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+
+            inventory.clear();   // Clear old inventory before loading new data
+
             String line;
             int loadedCount = 0;
 
@@ -193,5 +196,20 @@ public class InventoryManager {
         } catch (IOException e) {
             return false;
         }
+    }
+    /*
+     * This method returns the total number of inventory items.
+     * It is mainly used for unit testing.
+     */
+    public int getInventorySize() {
+        return inventory.size();
+    }
+
+    /*
+     * This method returns the inventory list.
+     * It is mainly used for unit testing.
+     */
+    public ArrayList<InventoryItem> getInventory() {
+        return inventory;
     }
 }
