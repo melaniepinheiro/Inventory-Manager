@@ -1,5 +1,5 @@
-Restaurant Inventory Management System
-About the Project
+## Restaurant Inventory Management System
+## About the Project
 
 This is a Java restaurant inventory program that uses a Swing GUI and an SQLite database.
 
@@ -7,7 +7,7 @@ The user can connect to the database, view inventory items, add new items, updat
 
 The design uses Barrio Burrito Bar-inspired colors and branding.
 
-Main Features
+## Main Features
 Connect to an SQLite database
 Display inventory records
 Add new items
@@ -21,7 +21,7 @@ Calculate total inventory value
 Confirm before exiting
 Inventory Information
 
-Each item includes:
+## Each item includes:
 
 Item ID
 Item name
@@ -33,7 +33,7 @@ Reorder level
 
 The value of each item is calculated by multiplying the quantity by the unit cost.
 
-Technologies Used
+## Technologies Used
 Java 17
 Java Swing
 SQLite
@@ -51,7 +51,7 @@ lib
 └── sqlite-jdbc-3.53.2.0.jar
 
 inventory.db
-How to Run
+## How to Run
 Open the project in IntelliJ.
 Make sure Java 17 is selected.
 Make sure the SQLite JDBC file is added as a library.
@@ -59,7 +59,7 @@ Run InventoryApplication.java.
 Click Browse.
 Select inventory.db.
 Click Connect Database.
-How to Use
+## How to Use
 
 To add an item, enter all information and click Add Item.
 
@@ -69,10 +69,6 @@ To remove an item, select a row and click Remove Item.
 
 The program checks for blank fields, incorrect numbers, negative values, duplicate IDs, and invalid database files.
 
-Custom Feature
+## Custom Feature
 
 The custom feature calculates the total value of all inventory items stored in the database.
-
-Author
-
-Melanie Pinheiro
