@@ -1,22 +1,29 @@
 /*
  * InventoryApplication.java
- * Starts the Phase 3 Java Swing interface.
+ *
+ * This class starts the Restaurant Inventory Manager program.
+ * It creates the database object and opens the GUI.
+ *
  * Author: Melanie Pinheiro
  */
 
-import javax.swing.*;
+import javax.swing.SwingUtilities;
 
 public class InventoryApplication {
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            try {
-                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            } catch (Exception ignored) {
-                // The program continues with Java's default appearance.
-            }
 
-            InventoryManager manager = new InventoryManager();
-            InventoryGUI gui = new InventoryGUI(manager);
+    public static void main(String[] args) {
+
+        SwingUtilities.invokeLater(() -> {
+
+            // Create the database helper object.
+            InventoryDatabase database =
+                    new InventoryDatabase();
+
+            // Send the database object to the GUI.
+            InventoryGUI gui =
+                    new InventoryGUI(database);
+
+            // Show the GUI window.
             gui.setVisible(true);
         });
     }
