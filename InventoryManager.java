@@ -1,10 +1,11 @@
-/*
- * InventoryManager.java
+/**
+ * Manages inventory records using an ArrayList and text files.
  *
- * This class stores the inventory list and handles the main inventory actions.
- * It can add, remove, update, display, load, save, and calculate inventory value.
+ * <p>This class was used during earlier phases of the project before
+ * the SQLite database was added.</p>
  *
- * Author: Melanie Pinheiro
+ * @author Melanie Pinheiro
+ * @version 1.0
  */
 
 import java.io.BufferedReader;

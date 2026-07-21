@@ -1,11 +1,19 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+/**
+ * Tests the original InventoryManager class.
+ *
+ * <p>These tests check adding, removing, updating, loading,
+ * and calculating the value of inventory records.</p>
+ *
+ * @author Melanie Pinheiro
+ * @version 1.0
+ */
 public class InventoryManagerTest {
 
-    /*
-     * Test adding an inventory item.
+    /**
+     * Tests that an inventory item can be added.
      */
     @Test
     public void testAddItem() {
@@ -27,8 +35,8 @@ public class InventoryManagerTest {
         assertTrue(manager.itemExists(100));
     }
 
-    /*
-     * Test removing an inventory item.
+    /**
+     * Tests that an inventory item can be removed.
      */
     @Test
     public void testRemoveItem() {
@@ -52,8 +60,8 @@ public class InventoryManagerTest {
         assertEquals(0, manager.getInventorySize());
     }
 
-    /*
-     * Test updating an inventory item.
+    /**
+     * Tests that an inventory item can be updated.
      */
     @Test
     public void testUpdateItem() {
@@ -80,8 +88,8 @@ public class InventoryManagerTest {
         assertEquals(25, updatedItem.getQuantity());
     }
 
-    /*
-     * Test loading inventory from a file.
+    /**
+     * Tests that inventory records can be loaded from a text file.
      */
     @Test
     public void testLoadInventory() {
@@ -93,8 +101,8 @@ public class InventoryManagerTest {
         assertEquals(20, manager.getInventorySize());
     }
 
-    /*
-     * Test calculating total inventory value.
+    /**
+     * Tests the total inventory value calculation.
      */
     @Test
     public void testCalculateInventoryValue() {

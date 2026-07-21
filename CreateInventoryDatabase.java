@@ -1,10 +1,12 @@
-/*
- * CreateInventoryDatabase.java
+/**
+ * Creates and fills the sample SQLite inventory database.
  *
- * This class creates the SQLite database for the inventory project.
- * It also adds 20 sample inventory records.
+ * <p>This class creates the inventory table and inserts twenty sample
+ * restaurant inventory records. It is mainly used to prepare the sample
+ * database submitted with the project.</p>
  *
- * Author: Melanie Pinheiro
+ * @author Melanie Pinheiro
+ * @version 1.0
  */
 
 import java.io.File;
@@ -16,6 +18,11 @@ import java.sql.Statement;
 
 public class CreateInventoryDatabase {
 
+    /**
+     * Creates the inventory database and inserts the sample records.
+     *
+     * @param args command-line arguments that are not used
+     */
     public static void main(String[] args) {
 
         // The database will be created in the main project folder.

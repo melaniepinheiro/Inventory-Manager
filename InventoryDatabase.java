@@ -1,11 +1,12 @@
-/*
- * InventoryDatabase.java
+/**
+ * Handles the connection between the application and the SQLite database.
  *
- * This class connects the Java program to the SQLite database.
- * It handles reading, adding, updating, removing, and calculating
- * inventory data.
+ * <p>This class performs all database operations, including connecting,
+ * reading records, adding items, updating items, removing items, counting
+ * items, and calculating the total inventory value.</p>
  *
- * Author: Melanie Pinheiro
+ * @author Melanie Pinheiro
+ * @version 1.0
  */
 
 import java.sql.Connection;
@@ -20,8 +21,12 @@ public class InventoryDatabase {
 
     private Connection connection;
 
-    /*
-     * This method connects to the SQLite database selected by the user.
+    /**
+     * Connects to an SQLite database selected by the user.
+     *
+     * @param databasePath path to the SQLite database file
+     * @return true when the database connects and contains the inventory table;
+     *         false otherwise
      */
     public boolean connect(String databasePath) {
 
@@ -49,8 +54,10 @@ public class InventoryDatabase {
         }
     }
 
-    /*
-     * This method checks whether the database is currently connected.
+    /**
+     * Checks whether the database connection is currently open.
+     *
+     * @return true when connected; false otherwise
      */
     public boolean isConnected() {
 
@@ -86,8 +93,10 @@ public class InventoryDatabase {
         }
     }
 
-    /*
-     * This method retrieves all inventory records from the database.
+    /**
+     * Retrieves all inventory records from the database.
+     *
+     * @return a list containing every inventory item
      */
     public List<InventoryItem> getAllItems() {
 
@@ -134,8 +143,11 @@ public class InventoryDatabase {
         return items;
     }
 
-    /*
-     * This method adds one new inventory item to the database.
+    /**
+     * Adds a new inventory item to the database.
+     *
+     * @param item inventory item to add
+     * @return true when the record is added; false otherwise
      */
     public boolean addItem(InventoryItem item) {
 
@@ -173,8 +185,11 @@ public class InventoryDatabase {
         }
     }
 
-    /*
-     * This method updates an existing inventory item.
+    /**
+     * Updates an existing inventory item in the database.
+     *
+     * @param item item containing the updated information
+     * @return true when the record is updated; false otherwise
      */
     public boolean updateItem(InventoryItem item) {
 
@@ -216,8 +231,11 @@ public class InventoryDatabase {
         }
     }
 
-    /*
-     * This method removes an inventory item using its ID.
+    /**
+     * Removes an inventory item from the database.
+     *
+     * @param itemId ID of the item to remove
+     * @return true when the record is removed; false otherwise
      */
     public boolean removeItem(int itemId) {
 
@@ -246,8 +264,11 @@ public class InventoryDatabase {
         }
     }
 
-    /*
-     * This method checks whether an item ID already exists.
+    /**
+     * Checks whether an item ID already exists in the database.
+     *
+     * @param itemId item ID to search for
+     * @return true when the ID exists; false otherwise
      */
     public boolean itemExists(int itemId) {
 
@@ -276,8 +297,13 @@ public class InventoryDatabase {
         }
     }
 
-    /*
-     * This custom feature calculates the total inventory value.
+    /**
+     * Calculates the total value of all inventory records.
+     *
+     * <p>The calculation multiplies each item's quantity by its unit cost
+     * and adds all item values together.</p>
+     *
+     * @return the total inventory value
      */
     public double calculateTotalInventoryValue() {
 
@@ -310,8 +336,10 @@ public class InventoryDatabase {
         return 0;
     }
 
-    /*
-     * This method returns the total number of database records.
+    /**
+     * Returns the number of inventory records in the database.
+     *
+     * @return total number of records
      */
     public int getInventorySize() {
 
@@ -343,8 +371,8 @@ public class InventoryDatabase {
         return 0;
     }
 
-    /*
-     * This method safely closes the database connection.
+    /**
+     * Safely closes the current database connection.
      */
     public void closeConnection() {
 

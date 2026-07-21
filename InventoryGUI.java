@@ -1,15 +1,16 @@
-/*
- * InventoryGUI.java
+/**
+ * Creates the graphical user interface for the inventory system.
  *
- * This class creates the graphical user interface for the
- * Restaurant Inventory Management System.
+ * <p>The GUI allows the user to connect to an SQLite database,
+ * view inventory records, add items, update items, remove items,
+ * refresh the table, and view inventory totals.</p>
  *
- * The program connects to an SQLite database and allows the
- * user to display, add, update, remove, and calculate inventory data.
+ * <p>This class uses an InventoryDatabase object to complete
+ * all database operations.</p>
  *
- * Author: Melanie Pinheiro
+ * @author Melanie Pinheiro
+ * @version 1.0
  */
-
 import javax.swing.*;
 import javax.swing.border.AbstractBorder;
 import javax.swing.border.EmptyBorder;
